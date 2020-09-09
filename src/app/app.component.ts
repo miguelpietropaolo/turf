@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Card } from './models/card';
 import { Race } from './models/race';
+import { templateJitUrl } from '@angular/compiler';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +9,12 @@ import { Race } from './models/race';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'horse-racing';
   started: boolean;
   last: Card;
   winner: Card;
   deck: Card[] = [];
   race: Race;
+  transposed: boolean;
 
   constructor() {
     this.init();
@@ -25,6 +26,7 @@ export class AppComponent {
     this.race = new Race();
     this.last = Card.getFence();
     this.started = true;
+    this.transposed = true;
   }
 
   pickCard() {
@@ -50,6 +52,13 @@ export class AppComponent {
         }
       }
     }
+  }
+
+  getMap() {
+    if(this.transposed) {
+      return this.transpose(this.race.map);
+    }
+    return this.race.map;
   }
 
   transpose(a) {

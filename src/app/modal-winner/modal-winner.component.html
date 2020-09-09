@@ -2,8 +2,9 @@
 
   <!-- Modal content -->
   <div class="modal-content">
-    <div class="card" [ngClass]="['s'+model.suit,'i'+model.index]" (click)="close()"></div>
-    <label></label>
+    <div class="modal-container">
+      <div class="card" [ngClass]="['s'+model.suit,'i'+model.index]" (click)="close()"></div>
+    </div>
   </div>
 
 </div>

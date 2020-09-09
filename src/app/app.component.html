@@ -3,7 +3,7 @@
     <card class="cardPick" (click)="pickCard()" [model]="last"></card>
   </div>
   <div class="panel">
-    <div class="lane" *ngFor="let track of transpose(race.map)">
+    <div class="lane" *ngFor="let track of getMap()">
       <card *ngFor="let card of track" [model]="card"></card>
     </div>
   </div>
