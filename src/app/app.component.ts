@@ -14,6 +14,7 @@ export class AppComponent {
   winner: Card;
   deck: Card[] = [];
   race: Race;
+  size: number = 5;
   transposed: boolean;
 
   constructor() {
@@ -21,12 +22,28 @@ export class AppComponent {
   }
 
   init() {
-    this.generateDeck();
-    this.deck = this.shuffle(this.deck);
-    this.race = new Race();
+    this.deck = this.generateDeck();
+    this.race = new Race(this.size);
     this.last = Card.getFence();
     this.started = true;
     this.transposed = true;
+  }
+
+  private generateDeck(): Card[] {
+    let deck = [];
+    for (let j = 1; j <= 4; j++) {
+      for (let i = 1; i <= 12; i++) {
+        let card = new Card(j, i);
+        if (i != 11) {
+          deck.push(card);
+        }
+      }
+    }
+    deck = this.shuffle(deck);
+    for (let j = 0; j < this.size; j++) {
+      deck.pop();
+    }
+    return deck;
   }
 
   pickCard() {
@@ -34,28 +51,35 @@ export class AppComponent {
       this.init();
     }
     else {
-      this.last = this.deck[this.deck.length - 1];
-      this.deck.pop();
-      if (this.race.moveHorse(this.last.suit)) {
+      if (this.deck.length > 0) {
+        this.last = this.deck[this.deck.length - 1];
+        this.deck.pop();
+        if (this.moveHorse(this.last.suit)) {
+          this.started = false;
+          this.winner.first= true;
+        }
+      }
+      else {
+        this.last = Card.getFence();
         this.started = false;
-        this.winner = this.race.getWinningHorse();
       }
     }
   }
 
-  private generateDeck() {
-    for (let j = 1; j <= 4; j++) {
-      for (let i = 1; i <= 12; i++) {
-        let card = new Card(j, i);
-        if (i != 11) {
-          this.deck.push(card);
-        }
-      }
+  private moveHorse(j: number) {
+    let last = this.race.map[j][this.size];
+    if (last.index != 11) {
+      this.race.map[j].pop();
+      this.race.map[j].unshift(last);
+      return false;
+    } else {
+      this.winner = last;
     }
+    return true;
   }
 
   getMap() {
-    if(this.transposed) {
+    if (this.transposed) {
       return this.transpose(this.race.map);
     }
     return this.race.map;

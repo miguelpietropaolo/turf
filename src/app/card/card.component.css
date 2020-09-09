@@ -15,6 +15,10 @@
   -khtml-border-radius: .3em;
 }
 
+.card.first {
+  box-shadow: 0em 0em 0.25em 0.1em #DAA520;
+}
+
 .card.i-1 {
   background-position-y: calc(-4 * 7.3em);
   background-position-x: calc(-0 * 4.75em);

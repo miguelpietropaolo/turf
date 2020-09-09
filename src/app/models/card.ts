@@ -2,6 +2,7 @@ export class Card {
   suit: number;
   index: number;
   id: number;
+  first: boolean;
 
   constructor(suit: number, index: number) {
     this.suit = suit;
