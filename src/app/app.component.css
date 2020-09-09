@@ -1,0 +1,15 @@
+.lane {
+  white-space: nowrap;
+}
+
+card {
+  margin: 0em 1em;
+}
+
+.panel {
+  float: left;
+}
+
+.panel .cardPick {
+  cursor: pointer;
+}

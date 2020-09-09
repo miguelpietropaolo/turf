@@ -1,0 +1,72 @@
+.card {
+  display: inline-block;
+  width: 4.75em;
+  height: 7.2em;
+  margin: 0 .5em .5em 0;
+  position: relative;
+  background-color: #fff;
+  background-image: url('../../assets/images/deck_full.png');
+  background-size: 57em;
+  box-shadow: 0.1em 0.1em 0.1em #333;
+  border: 1px solid #666;
+  border-radius: .3em;
+  -moz-border-radius: .3em;
+  -webkit-border-radius: .3em;
+  -khtml-border-radius: .3em;
+}
+
+.card.i-1 {
+  background-position-y: calc(-4 * 7.3em);
+  background-position-x: calc(-0 * 4.75em);
+}
+
+.card.i-2 {
+  background-position-y: calc(-4 * 7.3em);
+  background-position-x: calc(-1 * 4.75em);
+}
+
+.card.s2 {
+  background-position-y: calc(-1 * 7.3em);
+}
+
+.card.s3 {
+  background-position-y: calc(-2 * 7.3em);
+}
+
+.card.s4 {
+  background-position-y: calc(-3 * 7.3em);
+}
+
+.card.i2 {
+  background-position-x: calc(-1 * 4.75em);
+}
+.card.i3 {
+  background-position-x: calc(-2 * 4.75em);
+}
+.card.i4 {
+  background-position-x: calc(-3 * 4.75em);
+}
+.card.i5 {
+  background-position-x: calc(-4 * 4.75em);
+}
+.card.i6 {
+  background-position-x: calc(-5 * 4.75em);
+}
+.card.i7 {
+  background-position-x: calc(-6 * 4.75em);
+}
+.card.i8 {
+  background-position-x: calc(-7 * 4.75em);
+}
+.card.i9 {
+  background-position-x: calc(-8 * 4.75em);
+}
+.card.i10 {
+  background-position-x: calc(-9 * 4.75em);
+}
+.card.i11 {
+  background-position-x: calc(-10 * 4.75em);
+}
+.card.i12 {
+  background-position-x: calc(-11 * 4.75em);
+}
