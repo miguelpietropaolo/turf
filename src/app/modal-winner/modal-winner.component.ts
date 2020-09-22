@@ -13,17 +13,22 @@ export class ModalWinnerComponent implements OnInit {
 
   winnerSong = "https://upload.wikimedia.org/wikipedia/commons/e/ed/Por_una_cabeza_carlos_gardel.ogg";
   sound: Howl;
+  soundEnabled: boolean = true;
 
   constructor() {
-    this.sound = new Howl({ src: [this.winnerSong], html5 :true });
-   }
-
-  ngOnInit() {
-    this.sound.play();
+    this.sound = new Howl({ src: [this.winnerSong], html5: true });
   }
 
-  close(){
-    this.sound.stop();
+  ngOnInit() {
+    if (this.soundEnabled) {
+      this.sound.play();
+    }
+  }
+
+  close() {
+    if (this.soundEnabled) {
+      this.sound.stop();
+    }
     this.model = null;
     this.modelChange.emit(this.model);
   }
